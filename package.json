@@ -1,0 +1,34 @@
+{
+  "name": "@vital-ai/haley-mock",
+  "version": "0.0.1",
+  "description": "Mock client library to access Haley AI service",
+  "main": "index.js",
+  "dependencies": {
+    "sockjs-client": "^1.1.1"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vital-ai/haley-js-mock-npm.git"
+  },
+  "keywords": [
+    "haley",
+    "artificial",
+    "intelligence",
+    "chatbot",
+    "assistant",
+    "ai"
+  ],
+  "author": "Marc Hadfield",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vital-ai/haley-js-mock-npm/issues"
+  },
+  "homepage": "https://github.com/vital-ai/haley-js-mock-npm#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
+}
