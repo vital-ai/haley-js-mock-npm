@@ -30,42 +30,25 @@ VitalService = function(address, eventbusURL, successCB, errorCB) {
 		if( typeof(tv4) === 'undefined' ) {
 
 			VITAL_JSON_SCHEMAS = [];
-			
+
 			VITAL_LOGGING = true;
 			
 			tv4 = require(__dirname + '/tv4.min.js');
 		
 			LRUCache = require(__dirname + '/lru.js').LRUCache;
 			
-//			console.log('lrucache', LRUCache);
+			require(__dirname + '/vital-core-0.2.304.js')
+			require(__dirname + '/vital-0.2.304.js')
 			
-//			console.log('vital-core', 
-					require(__dirname + '/vital-core-0.2.304.js')
-//			);
+			var fs = require('fs');
 			
-//			console.log('vital', 
-					require(__dirname + '/vital-0.2.304.js')
-//				);
+			var items = fs.readdirSync(__dirname + '/domains');
 			
-//			console.log('vital-nlp', 
-					require(__dirname + '/vital-nlp-0.2.304.js')
-//			);
-			
-//			console.log('vital-social', 
-					require(__dirname + '/vital-social-0.2.304.js')
-//					);
-			
-//			console.log('vital-aimp', 
-					require(__dirname + '/vital-aimp-0.1.0.js')
-//			);
-			
-//			console.log('haley', 
-					require(__dirname + '/haley-0.1.0.js')
-//					);
-					
-//			console.log('haley-shopping', 
-					require(__dirname + '/haley-shopping-0.1.0.js')
-//			);
+			for(var i = 0 ; i < items.length; i++) {
+				var file = items[i];
+				console.log("Loading domain file: " + file)
+				require(__dirname + '../../../../../vital-lib/domains/' + file);
+			}
 					
 			var import1 = require(__dirname + '/vitalservice-json-0.2.304.js');
 			
