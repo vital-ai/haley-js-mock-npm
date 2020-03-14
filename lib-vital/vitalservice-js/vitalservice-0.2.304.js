@@ -72,7 +72,7 @@ VitalService = function(address, eventbusURL, successCB, errorCB) {
 			vitaljs = import1.vitaljs;
 			VitalServiceJson = import1.VitalServiceJson;
 			
-			var import2 = require(__dirname + '/vitalservice-impl-0.2.304.js');
+			var import2 = require(__dirname + '/vitalservice-mock-impl-0.2.304.js');
 			
 			VitalServiceWebsocketImpl = import2.VitalServiceWebsocketImpl;
 			UUIDGenerator = import2.UUIDGenerator;
