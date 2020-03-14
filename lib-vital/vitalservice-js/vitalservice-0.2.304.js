@@ -46,12 +46,12 @@ VitalService = function(address, eventbusURL, successCB, errorCB, options={}) {
 			var fs = require('fs');
 			var path = require('path');
 			
-			var items = fs.readdirSync(path.join(__dirname, '../../../../../lib-vital/vitalservice-js/domains'));
+			var items = fs.readdirSync(path.join(__dirname, '../../../../../vitalservice/domains'));
 
 			for(var i = 0 ; i < items.length; i++) {
 				var file = items[i];
 				console.log("Loading domain file: " + file)
-				require(path.join(__dirname, '../../../../../lib-vital/vitalservice-js/domains', file));
+				require(path.join(__dirname, '../../../../../vitalservice/domains', file));
 			}
 			
 			vitaljs = import1.vitaljs;

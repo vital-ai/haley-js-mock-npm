@@ -40,7 +40,7 @@ HaleyAPIMockVitalServiceImpl = function(vitalService) {
 		return rl;
 	};
 	
-	const handlers = require('../../../../../mock-server/mock-api');
+	const handlers = require('../../../../../haley-service-mock/index');
 	handlers.map(item => { 
 		this.registerSendMessageHandler(item.id, item.handler)
 	});
