@@ -1,7 +1,5 @@
 'use strict';
 
-const import1 = 
-
 /**
  * Initial haley-js-api module with embedded dependencies
  */
@@ -15,6 +13,8 @@ module.exports = {
   
   HaleyAPIVitalServiceImpl: require('./lib-vital/haley-js-api/haley-js-mock-implementation-0.0.1.js'),
 			
-	vitaljs: require('./lib-vital/vitalservice-json-0.2.304.js').vitaljs,
+  vitaljs: require('./lib-vital/vitalservice-json-0.2.304.js').vitaljs,
+  
+  VitalServiceJson: require('./lib-vital/vitalservice-json-0.2.304.js').VitalServiceJson,
   
 };

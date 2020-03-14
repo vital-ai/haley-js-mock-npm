@@ -1,6 +1,6 @@
 {
   "name": "@vital-ai/haley-mock",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Mock client library to access Haley AI service",
   "main": "index.js",
   "dependencies": {

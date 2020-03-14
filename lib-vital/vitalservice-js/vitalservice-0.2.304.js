@@ -42,12 +42,12 @@ VitalService = function(address, eventbusURL, successCB, errorCB) {
 			
 			var fs = require('fs');
 			
-			var items = fs.readdirSync(__dirname + '/domains');
+			var items = fs.readdirSync(__dirname + '/../../../../../domains');
 			
 			for(var i = 0 ; i < items.length; i++) {
 				var file = items[i];
 				console.log("Loading domain file: " + file)
-				require(__dirname + '../../../../../vital-lib/domains/' + file);
+				require(__dirname + '/../../../../../vital-lib/domains/' + file);
 			}
 					
 			var import1 = require(__dirname + '/vitalservice-json-0.2.304.js');
