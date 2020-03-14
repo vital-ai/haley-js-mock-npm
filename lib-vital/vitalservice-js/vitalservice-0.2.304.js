@@ -1,3 +1,6 @@
+const import1 = require(__dirname + '/vitalservice-json-0.2.304.js');
+const import2 = require(__dirname + '/vitalservice-mock-impl-0.2.304.js');
+
 /**
  * VitalService javascript interface
  * @param address - vitalservice eventbus address, 'vitalservice' in most cases
@@ -23,7 +26,7 @@ if(module) {
 }
 */
 
-VitalService = function(address, eventbusURL, successCB, errorCB) {
+VitalService = function(address, eventbusURL, successCB, errorCB, options={}) {
 
 	if(typeof(module) !== 'undefined') {
 		
@@ -41,21 +44,18 @@ VitalService = function(address, eventbusURL, successCB, errorCB) {
 			require(__dirname + '/vital-0.2.304.js')
 			
 			var fs = require('fs');
+			var path = require('path');
 			
-			var items = fs.readdirSync(__dirname + '/../../../../../domains');
-			
+			var items = fs.readdirSync(path.join(__dirname, '../../../../../lib-vital/vitalservice-js/domains'));
+
 			for(var i = 0 ; i < items.length; i++) {
 				var file = items[i];
 				console.log("Loading domain file: " + file)
-				require(__dirname + '/../../../../../vital-lib/domains/' + file);
+				require(path.join(__dirname, '../../../../../lib-vital/vitalservice-js/domains', file));
 			}
-					
-			var import1 = require(__dirname + '/vitalservice-json-0.2.304.js');
 			
 			vitaljs = import1.vitaljs;
 			VitalServiceJson = import1.VitalServiceJson;
-			
-			var import2 = require(__dirname + '/vitalservice-mock-impl-0.2.304.js');
 			
 			VitalServiceWebsocketImpl = import2.VitalServiceWebsocketImpl;
 			UUIDGenerator = import2.UUIDGenerator;
@@ -64,10 +64,38 @@ VitalService = function(address, eventbusURL, successCB, errorCB) {
 		
 	}
 	
-	//the vitalservice is initialized asynchronously
-	this.impl = new VitalServiceWebsocketImpl(address, 'service', eventbusURL, successCB, errorCB);
+	var _logger = console;
 	
+	var _loggingEnabled = false;
+	
+	var _disconnectOnWebsocketLimitExceeded = false;
+	
+	var _websocketLimitExceededHandler = null;
+	
+	if(options.logger != null) {
+		_logger = options.logger;
+	}
+	if(options.loggingEnabled != null) {
+		_loggingEnabled = options.loggingEnabled;
+	}
+	if(options.disconnectOnWebsocketLimitExceeded != null) {
+		_disconnectOnWebsocketLimitExceeded = options.disconnectOnWebsocketLimitExceeded;
+	}
+	if(options.websocketLimitExceededHandler != null) {
+		_websocketLimitExceededHandler = options.websocketLimitExceededHandler;
+	}
+	
+	//default is console
+	this.logger = _logger;
+
+	this.logger.info();
+
+	//the vitalservice is initialized asynchronously
+	this.impl = new VitalServiceWebsocketImpl(address, 'service', eventbusURL, successCB, errorCB, this.logger, _loggingEnabled);
+	this.impl.disconnectOnWebsocketLimitExceeded = _disconnectOnWebsocketLimitExceeded;
+	this.impl.websocketLimitExceededHandler = _websocketLimitExceededHandler;
 	this.NO_TRANSACTION = null;
+	this.impl.newConnection();
 	
 }
 

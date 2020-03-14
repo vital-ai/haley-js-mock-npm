@@ -1,6 +1,5 @@
 
 const HaleyAPIVitalServiceImpl = require('./haley-js-vitalservice-implementation-0.0.1');
-const handlers = require('../../../../../mock-server/mock-api');
 
 /**
  * Extends haley api implementation with vital
@@ -41,6 +40,7 @@ HaleyAPIMockVitalServiceImpl = function(vitalService) {
 		return rl;
 	};
 	
+	const handlers = require('../../../../../mock-server/mock-api');
 	handlers.map(item => { 
 		this.registerSendMessageHandler(item.id, item.handler)
 	});

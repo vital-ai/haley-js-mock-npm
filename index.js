@@ -13,8 +13,8 @@ module.exports = {
   
   HaleyAPIVitalServiceImpl: require('./lib-vital/haley-js-api/haley-js-mock-implementation-0.0.1.js'),
 			
-  vitaljs: require('./lib-vital/vitalservice-json-0.2.304.js').vitaljs,
+  vitaljs: require('./lib-vital/vitalservice-js/vitalservice-json-0.2.304.js').vitaljs,
   
-  VitalServiceJson: require('./lib-vital/vitalservice-json-0.2.304.js').VitalServiceJson,
+  VitalServiceJson: require('./lib-vital/vitalservice-js/vitalservice-json-0.2.304.js').VitalServiceJson,
   
 };
