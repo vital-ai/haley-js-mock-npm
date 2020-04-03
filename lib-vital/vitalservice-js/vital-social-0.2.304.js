@@ -897,10 +897,10 @@ var vital_social_0_2_304_schema = {
   } ]
 };
 
- VITAL_JSON_SCHEMAS.push(vital_social_0_2_304_schema);
- 
+VITAL_JSON_SCHEMAS.push(vital_social_0_2_304_schema);
+
 if(typeof(module) !== 'undefined') {
 
   module.exports = vital_social_0_2_304_schema;
- 
+
 }

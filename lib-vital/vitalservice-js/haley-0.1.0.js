@@ -1,5 +1,5 @@
 if(typeof(VITAL_JSON_SCHEMAS) == 'undefined') {
- throw ("No VITAL_JSON_SCHEMAS list defined - vital-core domain unavailable");
+  throw ("No VITAL_JSON_SCHEMAS list defined - vital-core domain unavailable");
 }
 
 var haley_0_1_0_schema = {

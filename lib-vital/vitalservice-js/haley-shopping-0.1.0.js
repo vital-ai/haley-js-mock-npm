@@ -219,8 +219,8 @@ var haley_shopping_0_1_0_schema = {
   } ]
 };
 
- VITAL_JSON_SCHEMAS.push(haley_shopping_0_1_0_schema);
- 
- if(typeof(module) !== 'undefined') {
-	 module.exports = haley_shopping_0_1_0_schema;
+VITAL_JSON_SCHEMAS.push(haley_shopping_0_1_0_schema);
+
+if(typeof(module) !== 'undefined') {
+  module.exports = haley_shopping_0_1_0_schema;
 }
